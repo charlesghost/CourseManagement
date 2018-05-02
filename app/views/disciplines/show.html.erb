@@ -1,0 +1,13 @@
+<h1>Disciplines</h1>
+<h2>View Disciplines</h2>
+
+<p>
+	<strong>Name</strong>
+	<%=@disciplines.discipline_name%>
+	<%=@disciplines.stream.stream_name%>
+</p>
+
+
+
+<%= link_to "Edit", edit_discipline_path(@disciplines), :method => "get", :class => "btn"%>
+<%= link_to "Back", disciplines_path, :method => "get", :class => "btn" %>

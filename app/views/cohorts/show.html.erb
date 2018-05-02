@@ -1,0 +1,28 @@
+<%# <p id="notice"><%= notice %>
+
+<p class="cohText">
+  <strong>Cohort Name:</strong>
+  <%= @cohort.cohort_name %>
+</p>
+
+<% if @cohort.discipline %>
+	<p class="cohText">
+	<strong>Discipline Name:</strong>
+	<%= @cohort.discipline.discipline_name %>
+	</p>
+
+	<% if @cohort.discipline.stream %>
+		<p class="cohText">
+	  	<strong>Stream Name:</strong>
+	 	 <%= @cohort.discipline.stream.stream_name %>
+		</p>
+  	<%else %>
+  	<% end %>
+<%else%>
+<%end%> 
+
+<%session[:name]%>
+
+
+
+<%= link_to 'Back', cohorts_path, :class => 'btn' %>

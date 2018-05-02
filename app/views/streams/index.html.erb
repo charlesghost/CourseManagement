@@ -1,0 +1,33 @@
+<h1> Did you find all the Streams you want?</h1>
+
+<table class="strList">  
+   <thead class="cohText">
+       <th>Stream Name |</th>
+       <th>Stream Start Date |</th>
+       <th>Stream End Date</th>
+   </thead>
+
+   <tbody class="cohTextSmall">
+       <% @stream.each do |stream| %>
+           <tr>
+               <td class="spacing"><%= stream.stream_name%></td>
+               <td><%= stream.start_date%></td>
+               <td><%= stream.end_date%></td>
+               <td><%= link_to 'Edit', edit_stream_path(stream), :class => "btn2" %></td>
+               <td><%= link_to 'Delete', stream, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn2" %></td>
+
+           </tr>
+       <% end %>
+   </tbody>
+</table>
+
+
+<%= link_to 'New Stream', streams_new_path, :class => "btn" %> 
+<%# <a data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="/streams/index">Destroy</a>  %>
+
+
+<%= link_to 'Disciplines', disciplines_path, :class => "btn" %>
+<%= link_to 'Cohorts', cohorts_path, :class => "btn" %>
+
+
+

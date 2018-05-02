@@ -1,0 +1,18 @@
+ <%= form_for(@stream) do |f|  %>
+   <p>
+   <%=f.label 'Name', :class => "txtForm" %><br>
+   <%=f.text_field :stream_name, :class => "form" %>
+   </p>
+
+   <p>
+   <%=f.label 'Start Date', :class => "txtForm" %><br>
+   <%=f.text_field :start_date, :class => "form" %>
+   </p>
+
+   <p>
+   <%=f.label 'End date', :class => "txtForm" %><br>
+   <%=f.text_field :end_date, :class => "form" %>
+   </p>
+
+   <%=f.submit 'Add', :class => "btnAdd" %>
+<%end%> 
