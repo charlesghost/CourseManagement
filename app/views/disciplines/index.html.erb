@@ -1,0 +1,33 @@
+<h1>Disciplines</h1>
+
+<table class="cohList">
+  <thead class="cohText">
+    <tr>
+      <th>Name |</th>
+      <th>Stream name</th>
+    </tr>
+  </thead>
+
+  <tbody class="cohTextSmall">
+    <% @disciplines.each do |disciplines| %>
+      <tr>
+        <td class="spacing"><%= disciplines.discipline_name %></td>
+           <% if disciplines.stream %>
+             <td><%= disciplines.stream.stream_name%></td>
+          <%else %>
+          
+          <%end%> 
+        
+        <td><%= link_to 'Show', disciplines, :class => "btn2" %></td>
+        <td><%= link_to 'Edit', edit_discipline_path(disciplines), :class => "btn2" %></td>
+        <td><%= link_to 'Destroy', disciplines, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn2" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Discipline', new_discipline_path, :class => "btn" %>
+<%= link_to 'Cohorts', cohorts_path, :class => "btn" %>
+<%= link_to 'Streams', streams_path, :class => "btn" %>

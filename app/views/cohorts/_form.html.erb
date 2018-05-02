@@ -1,0 +1,30 @@
+<%= form_for(@cohort) do |f|  %>
+    <p>
+    <%=f.label 'Name', :class => "txtForm" %><br>
+    <%=f.text_field :cohort_name, :class => "form" %>
+    </p>
+
+    <p>
+    <%=f.label :Discipline, :class => "txtForm" %>    
+    <%= collection_select :cohort, :discipline_id, Discipline.all, :id, :discipline_name, prompt: true, :class => "dropDown" %>
+    </p>
+
+    <p>
+    
+        <% @example.each do |json| %>
+
+         <a class="checkbox"><%= f.check_box :cohort_name, {name: json['f_name'], name2: json['l_name']} %></a>
+         <%= json['f_name'] %>
+         <%= json['l_name']%>
+         <br>
+                  
+        
+         <% end %>
+
+        
+         
+
+     </p> 
+
+    <%=f.submit 'Add', :class => "btnAdd" %>
+<%end%>

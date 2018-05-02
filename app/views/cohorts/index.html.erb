@@ -1,0 +1,41 @@
+<h1> Did you find all the Cohorts you want?</h1>
+
+<table class="cohList">   
+    <thead class="cohText">
+        <th>Cohorts Name |</th>
+        <th>Discipline |</th>
+        <th>Stream |</th> 
+    </thead>
+
+    <tbody class="cohTextSmall">
+        <% @cohort.each do |cohort| %>
+            <tr>
+                <td class="spacing"><%= cohort.cohort_name%></td>
+                    <% if cohort.discipline %>
+                        <td><%= cohort.discipline.discipline_name  %></td>
+                    
+                        
+                        <% if cohort.discipline.stream %>
+                            <td><%= cohort.discipline.stream.stream_name  %></td>
+                        <%else%>
+                        <%end%>
+
+                        <%else %>
+                    <%end%> 
+
+
+                <td><%= link_to 'Destroy', cohort, method: :delete, data: {confirm: 'Are you sure?'} , :class => "btn2"  %></td>
+                 <td><%= link_to 'Edit', edit_cohort_path(cohort), :class => "btn2" %></td>
+                <td><%= link_to 'Show', cohort, :class => "btn2" %></td>              
+            </tr>
+        <% end %>
+    </tbody>
+</table>
+
+<%= link_to 'Add New Cohort', cohorts_new_path, :class => "btn" %>
+
+<%= link_to 'Disciplines', disciplines_path, :class => "btn" %>
+<%= link_to 'Streams', streams_path, :class => "btn" %>
+
+
+

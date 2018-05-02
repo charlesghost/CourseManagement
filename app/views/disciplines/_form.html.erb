@@ -1,0 +1,13 @@
+<%= form_for(@disciplines) do |f| %>
+         <p>
+         <%=f.label :discipline_name, :class => "txtForm" %><br>
+         <%=f.text_field :discipline_name, :class => "form"%>
+         </p>
+         <p>
+         <%=f.label :Stream%>    
+         <%= collection_select :discipline, :stream_id, Stream.all, :id, :stream_name, prompt: true, :class => "form" %>
+         </p>
+     
+
+         <%=f.submit 'Create Discipline', :class => "btnAdd" %>
+     <%end%>
